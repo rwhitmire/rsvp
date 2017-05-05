@@ -4,43 +4,60 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <link rel="stylesheet" href="/static/css/style.css">
+  <title>RSVP For Ryan and Morgan's Wedding</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.2/vue.min.js"></script>
 </head>
 <body>
-  <div class="container">
-    <form action="">
-      <div>
-        <label for="">Email</label>
-        <input type="email">
-      </div>
-      <h2>Guest 1</h2>
-      <div>
-        <label>Name</label>
-        <input type="text">
-      </div>
-      <div>
-        Meal
-        <label>
-          <input type="radio" name="meal">
-          chicken
-        </label>
-        <label>
-          <input type="radio" name="meal">
-          beef
-        </label>
-        <label>
-          <input type="radio" name="meal">
-          vegetarian
-        </label>
-        <label>
-          <input type="radio" name="meal">
-          kids
-        </label>
-      </div>
-      <button>Add Guest</button>
-      <button>Submit</button>
-    </form>
+  {% raw %}
+  <div id="app">
+    <div class="container">
+      <h2>RSVP For Ryan & Morgan's Wedding</h2>
+      <form v-on:submit="submit">
+        <div class="guest-list">
+          <div class="guest-list-item" v-for="(person, index) in people">
+            <div class="form-block">
+              <input type="text" v-model="person.name" placeholder="First and last name" required>
+            </div>
+            <div class="form-block">
+              <label>
+                <input type="radio" v-bind:name="'meal-' + index" value="chicken" v-model="person.meal" required>
+                <span class="label-body">Chicken</span>
+              </label>
+              <label>
+                <input type="radio" v-bind:name="'meal-' + index" value="beef" v-model="person.meal" required>
+                <span class="label-body">Beef</span>
+              </label>
+              <label>
+                <input type="radio" v-bind:name="'meal-' + index" value="vegetarian" v-model="person.meal" required>
+                <span class="label-body">Vegetarian</span>
+              </label>
+              <label>
+                <input type="radio" v-bind:name="'meal-' + index" value="kids" v-model="person.meal" required>
+                <span class="label-body">Kids Meal</span>
+              </label>
+            </div>
+            <div v-if="index > 0">
+              <a v-on:click="removePerson(index)">Remove guest</a>
+            </div>
+          </div>
+          <div class="guest-list-item add-guest-item" v-on:click="addPerson">
+            <a>Add guest</a>
+          </div>
+        </div>
+        <div>
+          <button type="submit">Submit RSVP</button>
+        </div>
+      </form>
+    </div>
   </div>
+  {% endraw %}
+  <script src="/js/app.js"></script>
+  <!--[if lt IE 10]>
+    <script>
+      window.location = 'http://outdatedbrowser.com/en'
+    </script>
+  <![endif]-->
 </body>
 </html>
