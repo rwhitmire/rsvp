@@ -622,7 +622,7 @@ body {
 .guest-list-item input[type="text"] {
   width: 100%;
   border: none;
-  padding: 1.5rem 0;
+  padding: 0;
   border-bottom: 1px solid #e4e4e4;
 }
 
