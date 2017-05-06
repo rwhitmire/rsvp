@@ -6,7 +6,9 @@
     el: '#app',
 
     data: {
-      people: [{}, {}]
+      people: [{}, {}],
+      submitting: false,
+      submitted: false
     },
 
     methods: {
@@ -28,14 +30,17 @@
         request.onreadystatechange = function () {
           if(request.readyState === XMLHttpRequest.DONE) {
             if(request.status === 204) {
-              alert('done.')
+              app.submitted = true
             } else {
-              alert('error.')
+              alert('Error: Your RSVP was not saved. Blame Ryan.')
             }
+
+            app.submitting = false
           }
         }
 
         request.send(JSON.stringify(this.people))
+        app.submitting = true
       }
     }
   })

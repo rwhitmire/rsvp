@@ -47,9 +47,13 @@
           </div>
         </div>
         <div>
-          <button type="submit">Submit RSVP</button>
+          <button type="submit" v-if="submitting" disabled>Submitting RSVP...</button>
+          <button type="submit" v-else>Submit RSVP</button>
         </div>
       </form>
+    </div>
+    <div v-if="submitted" class="submitted">
+      Thanks! We'll see you on September 23rd.
     </div>
   </div>
   {% endraw %}

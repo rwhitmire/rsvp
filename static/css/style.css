@@ -41,7 +41,7 @@ body {
   /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
-  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #222;
   background: #fafafa;
   padding-top: 60px;
@@ -381,6 +381,10 @@ button[type="submit"] {
   border-bottom: 3px solid #309253;
 }
 
+button[type="submit"][disabled] {
+  background: #88bf9b;
+}
+
 .form-block {
   margin-bottom: 1.5rem;
 }
@@ -408,4 +412,16 @@ h2 {
     display: block;
     width: 100%;
   }
+}
+
+.submitted {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: white;
+  text-align: center;
+  font-size: 2.5rem;
+  padding-top: 140px;
 }
