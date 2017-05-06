@@ -6,10 +6,10 @@ app = Flask(__name__, static_url_path='')
 
 
 firebase = pyrebase.initialize_app({
-  'apiKey': os.environ['RSVP_FIREBASE_KEY'],
-  'authDomain': 'rsvp-2ab3a.firebaseapp.com',
-  'databaseURL': 'https://rsvp-2ab3a.firebaseio.com',
-  'storageBucket': 'rsvp-2ab3a.appspot.com'
+    'apiKey': os.environ['RSVP_FIREBASE_KEY'],
+    'authDomain': 'rsvp-2ab3a.firebaseapp.com',
+    'databaseURL': 'https://rsvp-2ab3a.firebaseio.com',
+    'storageBucket': 'rsvp-2ab3a.appspot.com'
 })
 
 db = firebase.database()
