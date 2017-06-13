@@ -1,9 +1,12 @@
-from flask import Flask, render_template, request
-import pyrebase
+# pylint: disable=C0103
+""" Web server for wedding RSVPs. """
+
 import os
+import pyrebase
+from flask import Flask, render_template, request
+
 
 app = Flask(__name__, static_url_path='')
-
 
 firebase = pyrebase.initialize_app({
     'apiKey': os.environ['RSVP_FIREBASE_KEY'],
@@ -17,11 +20,13 @@ db = firebase.database()
 
 @app.route('/')
 def index():
+    """ Home route """
     return render_template('index.html')
 
 
 @app.route('/rsvp', methods=['POST'])
 def rsvp():
+    """ Receives RSVPs """
     data = request.get_json()
     db.child('rsvps').push(data)
     return ('', 204)
