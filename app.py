@@ -3,7 +3,7 @@
 
 import os
 import pyrebase
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 
 
 app = Flask(__name__, static_url_path='')
@@ -16,6 +16,17 @@ firebase = pyrebase.initialize_app({
 })
 
 db = firebase.database()
+
+
+if __name__ != '__main__':
+    @app.before_request
+    def force_https():
+        """ Force https in production """
+        if request.url.startswith('http://'):
+            print('called')
+            url = request.url.replace('http://', 'https://', 1)
+            code = 301
+            return redirect(url, code=code)
 
 
 @app.route('/')
