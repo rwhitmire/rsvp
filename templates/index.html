@@ -14,6 +14,13 @@
   <div id="app">
     <div class="container">
       <h2>RSVP For Ryan & Morgan's Wedding</h2>
+      <h4>Meal Options:</h4>
+      <ul class="meal-list">
+        <li>Chicken veloute with roasted garlic mashed potatoes and green beans.</li>
+        <li>Filet mignon with red wine demi-glace, roasted garlic mashed potatoes  and green beans</li>
+        <li>Vegetarian wellington with red pepper coulis.</li>
+        <li>Chicken fingers and fries for kids meal</li>
+      </ul>
       <form v-on:submit="submit">
         <div class="guest-list">
           <div class="guest-list-item" v-for="(person, index) in people">
@@ -23,19 +30,19 @@
             <div class="form-block">
               <label>
                 <input type="radio" v-bind:name="'meal-' + index" value="chicken" v-model="person.meal" required>
-                <span class="label-body">Chicken</span>
+                <span class="label-body">Chicken veloute</span>
               </label>
               <label>
                 <input type="radio" v-bind:name="'meal-' + index" value="beef" v-model="person.meal" required>
-                <span class="label-body">Beef</span>
+                <span class="label-body">Filet mignon</span>
               </label>
               <label>
                 <input type="radio" v-bind:name="'meal-' + index" value="vegetarian" v-model="person.meal" required>
-                <span class="label-body">Vegetarian</span>
+                <span class="label-body">Vegetarian wellington</span>
               </label>
               <label>
                 <input type="radio" v-bind:name="'meal-' + index" value="kids" v-model="person.meal" required>
-                <span class="label-body">Kids Meal</span>
+                <span class="label-body">Chicken fingers kids meal</span>
               </label>
             </div>
             <div v-if="index > 0">

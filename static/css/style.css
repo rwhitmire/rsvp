@@ -64,6 +64,7 @@ h6 {
   margin-top: 0;
   margin-bottom: 2rem;
   font-weight: 300;
+  color: #c1c1c1
 }
 
 h1 {
@@ -389,10 +390,6 @@ button[type="submit"][disabled] {
   margin-bottom: 1.5rem;
 }
 
-h2 {
-  color: #cacaca
-}
-
 @media(min-width: 611px) {
   .guest-list {
     content: "";
@@ -425,4 +422,8 @@ h2 {
   font-size: 2.5rem;
   padding: 2rem;
   padding-top: 140px;
+}
+
+.meal-list {
+  padding-left: 16px;
 }
