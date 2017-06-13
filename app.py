@@ -23,7 +23,6 @@ if __name__ != '__main__':
     def force_https():
         """ Force https in production """
         if request.url.startswith('http://'):
-            print('called')
             url = request.url.replace('http://', 'https://', 1)
             code = 301
             return redirect(url, code=code)
