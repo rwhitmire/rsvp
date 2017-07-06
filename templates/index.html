@@ -44,6 +44,10 @@
                 <input type="radio" v-bind:name="'meal-' + index" value="kids" v-model="person.meal" required>
                 <span class="label-body">Chicken fingers kids meal</span>
               </label>
+              <label>
+                <input type="radio" v-bind:name="'meal-' + index" value="n/a" v-model="person.meal" required>
+                <span class="label-body">Not attending</span>
+              </label>
             </div>
             <div v-if="index > 0">
               <a v-on:click="removePerson(index)">Remove guest</a>
